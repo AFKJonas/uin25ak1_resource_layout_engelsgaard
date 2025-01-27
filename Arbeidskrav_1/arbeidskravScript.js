@@ -32,8 +32,15 @@ resources.map((resource, index) => resourcesHTML += `<article>
     
         infoSide.innerHTML = filteredHTML;  
     }
+
     //Legger bakgrunnsfarge på knappene for å vise hvilken kategori som er valgt:
-    
+    function changeBackgroundButtons(){
+        document.getElementById("htmlKnapp").style.backgroundColor = "#fff";
+        document.getElementById("cssKnapp").style.backgroundColor = "#fff";
+        document.getElementById("jsKnapp").style.backgroundColor = "#fff";
+        document.getElementById("reactKnapp").style.backgroundColor = "#fff";
+        document.getElementById("sanityKnapp").style.backgroundColor = "#fff";
+    }
     
     //addEventListener med "click" for å kalle funksjonen showInfoKort() og dens innhold: 
     document.getElementById("htmlKnapp").addEventListener("click", () => showInfoKort('HTML'));
@@ -43,8 +50,3 @@ resources.map((resource, index) => resourcesHTML += `<article>
     document.getElementById("sanityKnapp").addEventListener("click", () => showInfoKort('Sanity and headless CMS'));
     //kaller funksjonen for å vise HTML-informasjonen når siden lastes:
     showInfoKort('HTML');
-    
-    
-
-    
-    

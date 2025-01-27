@@ -23,11 +23,10 @@ body{
     }
     header{
         nav{
-            display: flex;
-            justify-content: space-between;
-            
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
             button{
-                
                 padding-top: 25px;
                 padding-left: 55px;
                 padding-right: 55px;

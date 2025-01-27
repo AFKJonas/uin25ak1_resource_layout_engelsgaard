@@ -29,6 +29,7 @@ resources.map((resource, index) => resourcesHTML += `<article>
                 </nav>
             </article>
         `).join('');
+    
         infoSide.innerHTML = filteredHTML;  
     }
     //Legger bakgrunnsfarge på knappene for å vise hvilken kategori som er valgt:
@@ -40,8 +41,10 @@ resources.map((resource, index) => resourcesHTML += `<article>
     document.getElementById("jsKnapp").addEventListener("click", () => showInfoKort('JavaScript'));
     document.getElementById("reactKnapp").addEventListener("click", () => showInfoKort('React'));
     document.getElementById("sanityKnapp").addEventListener("click", () => showInfoKort('Sanity and headless CMS'));
-    //Kaller funksjonen for å vise HTML-informasjonen når siden lastes:
+    //kaller funksjonen for å vise HTML-informasjonen når siden lastes:
     showInfoKort('HTML');
+    
+    
 
     
     

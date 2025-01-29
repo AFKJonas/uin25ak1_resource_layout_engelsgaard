@@ -26,6 +26,7 @@ body{
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 15px;
+
             button{
                 padding-top: 25px;
                 padding-left: 55px;
@@ -35,24 +36,14 @@ body{
                 color: var(--whiteF);
                 border: none;
                 cursor: pointer;
+                font-size: 14px;
+                font-weight: bold;
                 
             }
             
         }
     }
 }
-
-
-
 h2{
     color: var(--blue2);
 }
-
-
-button{
-    background-color: var(--whiteF);
-    border: none;
-
-}
-
-

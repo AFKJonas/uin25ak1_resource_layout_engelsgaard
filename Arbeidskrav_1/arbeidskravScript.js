@@ -1,5 +1,6 @@
  //Er øverst i scriptet for at infokortet med 'HTML' skal lastes/kjøre først, (kaller funksjonen for å vise HTML-informasjonen når siden lastes):
  showInfoKort('HTML');
+ changeBackgroundButtons('htmlKnapp');
 //loggfører til konsollen for å sjekke at arrayet er korrekt:
 console.log(resources);
 
@@ -41,20 +42,39 @@ resources.map((resource, index) => resourcesHTML += `<article>
         infoSide.innerHTML = filteredHTML;  
     }
 
-    //Legger bakgrunnsfarge på knappene for å vise hvilken kategori som er valgt:
-    function changeBackgroundButtons(){
-        document.getElementById("htmlKnapp").style.backgroundColor = "#fff";
-        document.getElementById("cssKnapp").style.backgroundColor = "#fff";
-        document.getElementById("jsKnapp").style.backgroundColor = "#fff";
-        document.getElementById("reactKnapp").style.backgroundColor = "#fff";
-        document.getElementById("sanityKnapp").style.backgroundColor = "#fff";
-    }
-   
+// Funksjon for å endre bakgrunnsfargen på knappene til hvit når de er trykket på("blir om til aktiv knapp")
+function changeBackgroundButtons(activeKnappId) {
+    // querySelectorAll for å hente 
+    document.querySelectorAll(".knapp").forEach(knapp => {
+        knapp.style.backgroundColor = ""; // Tilbakestiller til ingen bakgrunnsfarge
+        knapp.style.color = ""; // Tilbakestiller til ingen tekstfarge
+    });
     
-    //addEventListener med "click" for å kalle på funksjonen showInfoKort() og dens innhold: 
-    document.getElementById("htmlKnapp").addEventListener("click", () => showInfoKort('HTML'));
-    document.getElementById("cssKnapp").addEventListener("click", () => showInfoKort('CSS'));
-    document.getElementById("jsKnapp").addEventListener("click", () => showInfoKort('JavaScript'));
-    document.getElementById("reactKnapp").addEventListener("click", () => showInfoKort('React'));
-    document.getElementById("sanityKnapp").addEventListener("click", () => showInfoKort('Sanity and headless CMS'));
-   
+    // Så endrer vi bakgrunnsfargen til hvit på den aktive knappen
+    document.getElementById(activeKnappId).style.backgroundColor = "#fff";
+    document.getElementById(activeKnappId).style.color = "#000";
+}
+
+// Legger til event listeners for hver knapp
+document.getElementById("htmlKnapp").addEventListener("click", () => {
+    showInfoKort('HTML');
+    changeBackgroundButtons('htmlKnapp');
+});
+document.getElementById("cssKnapp").addEventListener("click", () => {
+    showInfoKort('CSS');
+    changeBackgroundButtons('cssKnapp');
+});
+document.getElementById("jsKnapp").addEventListener("click", () => {
+    showInfoKort('JavaScript');
+    changeBackgroundButtons('jsKnapp');
+});
+document.getElementById("reactKnapp").addEventListener("click", () => {
+    showInfoKort('React');
+    changeBackgroundButtons('reactKnapp');
+});
+document.getElementById("sanityKnapp").addEventListener("click", () => {
+    showInfoKort('Sanity and headless CMS');
+    changeBackgroundButtons('sanityKnapp');
+});
+    
+

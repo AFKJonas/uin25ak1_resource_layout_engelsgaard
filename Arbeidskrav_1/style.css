@@ -38,9 +38,9 @@ body{
                 cursor: pointer;
                 font-size: 14px;
                 font-weight: bold;
+                font-family: "roboto", sans-serif;
                 
-            }
-            
+            }  
         }
     }
 }

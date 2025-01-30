@@ -1,13 +1,13 @@
- //Er øverst i scriptet for at infokortet med 'HTML' skal lastes/kjøre først, (kaller funksjonen for å vise HTML-informasjonen når siden lastes):
+    //Er øverst i scriptet for at infokortet med 'HTML' skal lastes/kjøre først, (kaller funksjonen for å vise HTML-informasjonen når siden lastes):
  showInfoKort('HTML');
  changeBackgroundButtons('htmlKnapp');
-//loggfører til konsollen for å sjekke at arrayet er korrekt:
+    //loggfører til konsollen for å sjekke at arrayet er korrekt:
 console.log(resources);
 
-//laget en variabel som skal holde på HTML-koden som skal vises på nettsiden:
+    //laget en variabel som skal holde på HTML-koden som skal vises på nettsiden:
 let resourcesHTML = "";
 
-//lager en .map() for å hente ut data fra arrayet(resources) og legge det inn i HTML-koden:
+    //lager en .map() for å hente ut data fra arrayet(resources) og legge det inn i HTML-koden:
 resources.map((resource, index) => resourcesHTML += `<article>
         <h2>${resource.category}</h2>
         <p>${resource.text}</p>
@@ -19,7 +19,7 @@ resources.map((resource, index) => resourcesHTML += `<article>
         </nav>
     </article>`);
     
-    //funksjon her for filtrere den infoen til den kategorien som er valgt og viser den.   
+    //funksjon her for filtrere den infoen til den kategorien som er valgt og viser den:   
     function showInfoKort(category) {
     //const her for å hente ut elementet med id "infoSide" fra HTML-filen: 
         const infoSide = document.getElementById("infoSide");
@@ -38,24 +38,28 @@ resources.map((resource, index) => resourcesHTML += `<article>
             </article>
         `).join('');
     
-        //Plasserer infoen inn i der id="infoSide"/ er lokalisert i HTML-filen:
+    //Plasserer infoen inn i der id="infoSide"/ er lokalisert i HTML-filen:
         infoSide.innerHTML = filteredHTML;  
     }
 
-// Funksjon for å endre bakgrunnsfargen på knappene til hvit når de er trykket på("blir om til aktiv knapp")
+    //Funksjon som først tilbakestiller de andre knappene til standard bakgrunnsfarge, 
+    //og deretter endrer både bakgrunnsfargen og tekst-fargen til den aktive knappen:
 function changeBackgroundButtons(activeKnappId) {
-    // querySelectorAll for å hente 
+    //querySelectorAll prøver finner alle elementene med klassen "knapp", og forEach går gjennom hvert element:
     document.querySelectorAll(".knapp").forEach(knapp => {
-        knapp.style.backgroundColor = ""; // Tilbakestiller til ingen bakgrunnsfarge
-        knapp.style.color = ""; // Tilbakestiller til ingen tekstfarge
+    //Tilbakestiller til standard bakgrunnsfarge:
+        knapp.style.backgroundColor = ""; 
+    //Tilbakestiller til standard tekstfarge:
+        knapp.style.color = ""; 
     });
     
-    // Så endrer vi bakgrunnsfargen til hvit på den aktive knappen
+    //Når knappen er aktiv, endres bakgrunnsfargen til hvit og teksten til svart:
     document.getElementById(activeKnappId).style.backgroundColor = "#fff";
     document.getElementById(activeKnappId).style.color = "#000";
 }
 
-// Legger til event listeners for hver knapp
+//EventListeners for å lytte etter om knappene blir trykket på, og hvis de blir trykket på, 
+//så vil både funksjonene showInfoKort og changeBackgroundButtons kjøre:
 document.getElementById("htmlKnapp").addEventListener("click", () => {
     showInfoKort('HTML');
     changeBackgroundButtons('htmlKnapp');
@@ -76,5 +80,3 @@ document.getElementById("sanityKnapp").addEventListener("click", () => {
     showInfoKort('Sanity and headless CMS');
     changeBackgroundButtons('sanityKnapp');
 });
-    
-
